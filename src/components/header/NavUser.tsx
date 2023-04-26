@@ -125,7 +125,7 @@ function NavUser() {
                 {listUserData.map((item, index) => {
                     return (
                         <div key={index} className="group relative w-[28px] h-[28px] bg-[#000] cursor-pointer">
-                            <UserItem key={index} title={item.title} image={item.image} children={item.children} />
+                            <UserItem title={item.title} image={item.image} children={item.children} />
                         </div>
                     );
                 })}

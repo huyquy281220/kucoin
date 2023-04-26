@@ -62,11 +62,11 @@ function NavLink({ title, childrens, image, overview, payment, position }: NavLi
                         {/*  */}
                         {childrens?.map((item, index) => {
                             return (
-                                <>
+                                <div key={index}>
                                     {item.title === "Divide" ? (
                                         <hr className="my-[16px] mx-[28px]" />
                                     ) : (
-                                        <div key={index} className="group/item relative flex items-center w-full ps-4 py-[11px] pe-[32px] hover:bg-[#737E8D]/[.08] cursor-pointer">
+                                        <div className="group/item relative flex items-center w-full ps-4 py-[11px] pe-[32px] hover:bg-[#737E8D]/[.08] cursor-pointer">
                                             <Image src={Logo} alt="icon" width={36} className="h-[36px] me-4" />
                                             <div>
                                                 <h4 className="font-bold">{item.title}</h4>
@@ -75,7 +75,7 @@ function NavLink({ title, childrens, image, overview, payment, position }: NavLi
                                             <Image src={ArrowRight} alt="arrow-right" className="group-hover/item:block hidden absolute right-[20px] " />
                                         </div>
                                     )}
-                                </>
+                                </div>
                             );
                         })}
                     </div>
