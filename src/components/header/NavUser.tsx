@@ -118,13 +118,13 @@ function NavUser() {
                 {navUserData.map((item, index) => {
                     return (
                         <div key={index} className="group relative flex items-center cursor-pointer">
-                            <NavLink title={item.title} position={item.position} children={item.children} overview={item.overview} payment={item.payment} />
+                            <NavLink title={item.title} position={item.position} childrens={item.children} overview={item.overview} payment={item.payment} />
                         </div>
                     );
                 })}
                 {listUserData.map((item, index) => {
                     return (
-                        <div className="group relative w-[28px] h-[28px] bg-[#000] cursor-pointer">
+                        <div key={index} className="group relative w-[28px] h-[28px] bg-[#000] cursor-pointer">
                             <UserItem key={index} title={item.title} image={item.image} children={item.children} />
                         </div>
                     );
