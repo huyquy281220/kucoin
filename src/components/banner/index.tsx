@@ -11,7 +11,7 @@ import LogoSpotLight from "../../../public/images/logo-spotlight.svg";
 import ArrowRight from "../../../public/images/arrow_right.svg";
 
 function Banner() {
-    const [chartData, setChartData] = useState<ChartData<"line", ChartDataPoint[], unknown>>({});
+    // const [chartData, setChartData] = useState<ChartData>({});
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ function Banner() {
             try {
                 const response = await axios.get("https://api.kucoin.com/api/v1/market/candles?type=1min&symbol=BTC-USDT&startAt=1566703297&endAt=1566789757", {
                     headers: {
+                        "Access-Control-Allow-Origin": "*",
                         "KC-APi-SIGN": `${process.env.KUCOIN_API_SECRET}`,
                         "KC-API-TIMESTAMP": Date.now(),
                         "KC-API-KEY": `${process.env.KUCOIN_API_KEY}`,
@@ -30,18 +31,18 @@ function Banner() {
                     x: new Date(candle[0]),
                     y: candle.slice(1),
                 }));
-                setChartData({
-                    labels: chartData.map((candle) => candle.x.toLocaleTimeString()),
-                    datasets: [
-                        {
-                            label: "BTC/USDT",
-                            data: chartData,
-                            borderColor: "rgba(255, 99, 132, 1)",
-                            backgroundColor: "rgba(255, 99, 132, 0.2)",
-                        },
-                    ],
-                });
-                setLoading(false);
+                // setChartData({
+                //     labels: chartData.map((candle) => candle.x.toLocaleTimeString()),
+                //     datasets: [
+                //         {
+                //             label: "BTC/USDT",
+                //             data: chartData,
+                //             borderColor: "rgba(255, 99, 132, 1)",
+                //             backgroundColor: "rgba(255, 99, 132, 0.2)",
+                //         },
+                //     ],
+                // });
+                // setLoading(false);
             } catch (error) {
                 console.error(error);
             }
@@ -49,9 +50,9 @@ function Banner() {
         fetchChartData();
     }, []);
 
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    // if (loading) {
+    //     return <p>Loading...</p>;
+    // }
     return (
         <>
             <div className="relative flex items-center w-full h-[440px] bg-gradient-to-l from-[#0a1221] to-[#0c1a2a] ">
@@ -73,7 +74,7 @@ function Banner() {
                 </div>
             </div>
             <SubBanner />
-            <Line
+            {/* <Line
                 data={chartData}
                 options={{
                     plugins: {
@@ -108,7 +109,7 @@ function Banner() {
                         },
                     },
                 }}
-            />
+            /> */}
         </>
     );
 }
