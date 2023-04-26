@@ -89,7 +89,7 @@ function Header() {
                 {navLinkData.map((item, index) => {
                     return (
                         <div key={index} className="group relative flex items-center cursor-pointer">
-                            <NavLink title={item.title} children={item.children} image={item.image} />
+                            <NavLink title={item.title} childrens={item.children} image={item.image} />
                         </div>
                     );
                 })}

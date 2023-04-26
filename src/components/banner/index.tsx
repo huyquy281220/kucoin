@@ -19,9 +19,10 @@ function Banner() {
             try {
                 const response = await axios.get("https://api.kucoin.com/api/v1/market/candles?type=1min&symbol=BTC-USDT&startAt=1566703297&endAt=1566789757", {
                     headers: {
-                        "KC-APi-SIGN": "kucoin2812",
+                        "KC-APi-SIGN": `${process.env.KUCOIN_API_SECRET}`,
                         "KC-API-TIMESTAMP": Date.now(),
-                        "KC-API-KEY": "643bca825482ab000169ae4f",
+                        "KC-API-KEY": `${process.env.KUCOIN_API_KEY}`,
+                        "KC-API-PASSPHRASE": "kucoin2812",
                         "KC-API-KEY-VERSION": "2",
                     },
                 });

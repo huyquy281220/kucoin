@@ -13,7 +13,7 @@ interface NavLinkProps {
     position?: string;
     title?: string;
     image?: string;
-    children?: {
+    childrens?: {
         title?: string;
         desc?: string;
         image?: string;
@@ -27,7 +27,7 @@ interface NavLinkProps {
     };
 }
 
-function NavLink({ title, children, image, overview, payment, position }: NavLinkProps) {
+function NavLink({ title, childrens, image, overview, payment, position }: NavLinkProps) {
     const [show, setShow] = useState<boolean>(true);
 
     const handleShowAsset = () => {
@@ -36,7 +36,7 @@ function NavLink({ title, children, image, overview, payment, position }: NavLin
 
     return (
         <div className="flex items-center pe-4 after:content-[''] after:absolute after:top-[20px] after:w-full after:h-[50px] after:bg-transparent">
-            {children ? (
+            {childrens ? (
                 <>
                     {title ? <span className="group-hover:text-[#01BC8D]">{title}</span> : <Image src={image || Block} alt="block" width={13} />}
                     <Image src={Arrow} alt="arrow" className="inline-block mx-[5px] group-hover:scale-y-[-1]" />
@@ -60,7 +60,7 @@ function NavLink({ title, children, image, overview, payment, position }: NavLin
                             </div>
                         )}
                         {/*  */}
-                        {children?.map((item, index) => {
+                        {childrens?.map((item, index) => {
                             return (
                                 <>
                                     {item.title === "Divide" ? (
