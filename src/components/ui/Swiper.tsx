@@ -9,7 +9,7 @@ function CustomSwiper({ slides, ...props }: CustomSwiperProps) {
     return (
         <Swiper {...props}>
             {slides.map((item, index) => {
-                return <SwiperSlide key={index}>{item}</SwiperSlide>;
+                return <SwiperSlide key={`slide-${index}`}>{item}</SwiperSlide>;
             })}
         </Swiper>
     );
